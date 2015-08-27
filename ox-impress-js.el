@@ -636,7 +636,7 @@ INFO is a plist used as a communication channel."
             (org-export-solidify-link-text
              (or (org-element-property :CUSTOM_ID headline)
                  (concat "outline-container-"
-                         (org-export-get-headline-id headline info))))
+                         (org-export-get-reference headline info))))
             ;; Body.
             (concat
              (and (not (org-export-low-level-p headline info))
@@ -827,7 +827,7 @@ holding contextual information."
                                          headline info) "-"))
              (ids (delq nil
                         (list (org-element-property :CUSTOM_ID headline)
-                              (org-export-get-headline-id headline info)
+                              (org-export-get-reference headline info)
                               (org-element-property :ID headline))))
              (preferred-id (car ids))
              (extra-class (org-element-property :HTML_CONTAINER_CLASS headline))
@@ -894,7 +894,7 @@ holding contextual information."
                 class-num
                 (or (org-element-property :CUSTOM_ID parent)
                     section-number
-                    (org-export-get-headline-id parent info))
+                    (org-export-get-reference parent info))
                 (or contents ""))))))
 
 
